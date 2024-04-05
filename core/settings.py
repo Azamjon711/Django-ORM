@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # extension
+    'django_extensions',
+    'import_export',
     # apps
     'library',
     'student',
-    # extension
-    'django_extensions',
+
 ]
 
 MIDDLEWARE = [
