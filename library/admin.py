@@ -5,14 +5,21 @@ from import_export.admin import ImportExportModelAdmin
 
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin):
-    list_display = ("id", "title", "description", "price", "count", "author", "create_date")
-    list_display_links = ("id", "title", "description", "price", "count", "create_date")
+    list_display = ("id", "title", "description_length", "price", "count", "author", "comments_count", "create_date")
+    list_display_links = ("id", "title", "description_length", "price", "count", "comments_count", "create_date")
     search_fields = ("title", "description")
     ordering = ("-create_date",)
     # filter_horizontal = ("comment", )
     list_filter = ("title", "author", "price")
     date_hierarchy = "create_date"
     list_editable = ("author", )
+    autocomplete_fields = ("author",)
+
+    def description_length(self, obj):
+        return obj.description[:15]
+
+    def comments_count(self, obj):
+        return obj.comment.all().count()
 
 
 @admin.register(Author)
