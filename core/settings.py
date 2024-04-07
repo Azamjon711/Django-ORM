@@ -23,7 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 # SECRET_KEY = 'django-insecure-spj%e0t_c9qdjrgoln$i^&q%+@070punx#lfkwgy*r1xh*&!+k'
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     # apps
     'library',
     'student',
+    'user'
 
 ]
 

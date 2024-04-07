@@ -23,4 +23,5 @@ urlpatterns = [
     path("", MainView.as_view(), name="main"),
     path("", include("library.urls")),
     path("", include("student.urls")),
+    path("", include("user.urls")),
 ]

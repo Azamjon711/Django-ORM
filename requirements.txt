@@ -3,7 +3,6 @@ defusedxml==0.7.1
 diff-match-patch==20230430
 Django==5.0.3
 django-extensions==3.2.3
--e git+https://github.com/django-import-export/django-import-export.git@493ff3c65131814ecd5ef5d12ee547c60bc253fd#egg=django_import_export
 et-xmlfile==1.1.0
 MarkupPy==1.14
 odfpy==1.4.1
