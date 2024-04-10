@@ -1,36 +1,76 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'auth/css/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'auth/css/style.css' %}">
 </head>
+
 <body>
-    <h1>Register Page</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        <label for="first_name">First Name: </label>
-        <input type="text" id="first_name" name="first_name"> <br> <br>
+    <div class="main">
 
-        <label for="last_name">Last Name: </label>
-        <input type="text" id="last_name" name="last_name"> <br> <br>
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_1"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password_1" id="password_1" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_2"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="password_2" id="password_2" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'auth/images/signup-image.jpg' %}" alt="sing up image"></figure>
+                        <a href="{% url 'login' %}" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-        <label for="email">Email: </label>
-        <input type="email" id="email" name="email"> <br> <br>
-
-        <label for="username">Username: </label>
-        <input type="text" id="username" name="username"> <br> <br>
-
-        <label for="password_1">Password: </label>
-        <input type="password" id="password_1" name="password_1"> <br> <br>
-
-        <label for="password_2">Reply Password: </label>
-        <input type="password" id="password_2" name="password_2"> <br> <br>
-
-        {{ form.as_p }}
-
-        <button type="submit">Register</button>
-    </form>
-    <a href="{% url 'login' %}">Sign in</a>
+    <!-- JS -->
+    <script src="{% static 'auth/js/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'auth/js/main.js' %}"></script>
 </body>
 </html>

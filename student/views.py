@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Student
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class StudentListView(View):
+class StudentListView(LoginRequiredMixin, View):
     def get(self, request):
         search = request.GET.get("search")
         if not search:

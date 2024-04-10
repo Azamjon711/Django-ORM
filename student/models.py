@@ -18,6 +18,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=50, verbose_name="Ism")
     last_name = models.CharField(max_length=50, verbose_name="Familiya")
     age = models.PositiveIntegerField(null=True, blank=True, verbose_name="Yoshi")
+    image = models.ImageField(upload_to="media/student/")
     status = models.CharField(max_length=30, choices=Role.choices, default=Role.bachelor, verbose_name="Status")
     address = models.ForeignKey(Address, on_delete=models.CASCADE, verbose_name="Address")
 

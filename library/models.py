@@ -25,6 +25,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Narxi")
     count = models.IntegerField(default=1, verbose_name="Soni")
     author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name="Avtor ismi")
+    image = models.ImageField(upload_to="media/book/")
     comment = models.ManyToManyField(Comment, verbose_name="Komment")
     create_date = models.DateTimeField(auto_created=True, verbose_name="Yaratilgan sana")
 

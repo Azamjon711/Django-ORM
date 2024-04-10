@@ -14,16 +14,28 @@
         <button type="submit">Search</button>
     </form>
     
-    <h2>Books:</h2>
-    <ul>
-        {% for book in books %}
-        <li>
-            <h3>
-                <a href="{% url 'book-details' book.id %}">Title: {{ book.title }}</a>
-            </h3>
-        </li>
-        {% endfor %}
-    </ul>
+    {% for book in books %}
+        <div class="card" style="width: 18rem;">
+          <img src="{{book.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{book.title}}</h5>
+            <p class="card-text">{{book.description}}</p>
+              <h4>Comments:</h4>
+              <p>
+                  <ul>
+                        {% for comment in book.comments.all %}
+
+                        <li>
+                            <b>Student:</b> {{ comment.student.first_name }} <br>
+                            <b>Text:</b> {{ comment }}
+                        </li>
+                {% endfor %}
+                </ul>
+              </p>
+            <a href="{% url 'book-details' book.id %}" class="btn btn-primary">Click</a>
+          </div>
+        </div>
+    {% endfor %}
 
 
     <br> <h3><a href="{% url 'main' %}">Back</a></h3>
